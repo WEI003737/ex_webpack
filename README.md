@@ -1,1 +1,1 @@
-# ex_webpack
+# webpack example
