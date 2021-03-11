@@ -1,0 +1,33 @@
+{
+  "name": "webpack_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=development webpack --config webpack.dev.babel.js --watch",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.babel.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WEI003737/ex_webpack.git"
+  },
+  "keywords": [],
+  "author": "WEI-CHUN LIN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WEI003737/ex_webpack/issues"
+  },
+  "homepage": "https://github.com/WEI003737/ex_webpack#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/register": "^7.11.5",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-merge": "^5.1.1"
+  },
+  "dependencies": {}
+}
