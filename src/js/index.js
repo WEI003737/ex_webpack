@@ -1,4 +1,5 @@
-const a = 1;
-let b = ['Alice', 'Belly', 'Cathy'];
+import '../scss/index.scss';
+import { changeText, doSomething } from './components/test';
 
-let c = b.map((el) => el.length);
+let b = ['Alice', 'Belly', 'Cathy'];
+doSomething(b);
