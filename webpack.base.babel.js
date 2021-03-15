@@ -2,11 +2,12 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import { DEV_ENV, PROD_ENV, NODE_ENV, PUBLICPATH } from './config';
+import { DEV_ENV, NODE_ENV, PUBLICPATH } from './config';
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
   entry: {
+    // index: ['@babel/polyfill', './js/index.js'] //polyfill 肥肥的
     index: './js/index.js'
   },
   output: {
