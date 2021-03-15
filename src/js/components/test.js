@@ -8,6 +8,7 @@ function changeText (text) {
 function doSomething (arr) {
   let length = arr.map((el) => el.length);
   console.log(length);
+  console.log(Array.from('foo'));
 };
 
 export {

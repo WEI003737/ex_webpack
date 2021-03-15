@@ -18,3 +18,7 @@ if (NODE_ENV === 'development') {
   // };
 };
 
+const a = 734;  
+let b = ['Alice', 'Belly', 'Cathy'];
+changeText(a);
+doSomething(b);
