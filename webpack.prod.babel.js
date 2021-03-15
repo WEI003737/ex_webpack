@@ -1,13 +1,14 @@
 import path from 'path';
 import { merge } from 'webpack-merge';
-import baseWebpackConfig from './webpack.base.babel.js';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import baseWebpackConfig from './webpack.base.babel.js';
+
 
 export default merge ( baseWebpackConfig, {
   stats: 'errors-only',
   mode: 'production',
-  devtool: 'eval',
+  devtool: 'false',
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({

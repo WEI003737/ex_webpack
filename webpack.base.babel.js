@@ -17,7 +17,7 @@ const webpackConfig = {
   module: {
     rules: [  
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.s[ac]ss$/,
         use: () => {
           const loaders = ['css-loader', 'resolve-url-loader', 'postcss-loader', 'sass-loader']
           return NODE_ENV === 'development'
@@ -28,7 +28,7 @@ const webpackConfig = {
         }
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: () => 
           NODE_ENV === 'development'
           ? ['style-loader', 'css-loader?sourceMap=true', 'resolve-url-loader']
