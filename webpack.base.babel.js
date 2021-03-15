@@ -2,7 +2,6 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-
 import { DEV_ENV, PROD_ENV, NODE_ENV, PUBLICPATH } from './config';
 
 const webpackConfig = {
@@ -12,7 +11,7 @@ const webpackConfig = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'static/js/[name].[hash].js'
+    filename: 'static/js/[name].js?[hash:8]'
   },
   module: {
     rules: [  
@@ -45,9 +44,10 @@ const webpackConfig = {
           {
             loader: 'url-loader',
             options: {
-              name: NODE_ENV === 'production' ? PUBLICPATH + '/static/images/[name].[ext]': './static/images/[name].[ext]',
+              name: '[name].[ext]?[hash:8]',
+              publicPath: NODE_ENV === 'production' ? PUBLICPATH + '/static/images' : './static/images',
               limit: 1000,
-              emitFile: false,
+              emitFile: false, //預設true: 輸出檔案 / false: css路徑寫入publicPath，不輸出檔案
             },
           },
         ],
@@ -58,7 +58,8 @@ const webpackConfig = {
           {
             loader: 'url-loader',
             options: {
-              name: NODE_ENV === 'production' ? PUBLICPATH + '/static/images/[name].[ext]': './static/images/[name].[ext]',
+              name: '[name].[ext]?[hash:8]',
+              publicPath: NODE_ENV === 'production' ? PUBLICPATH + '/static/images' : './static/images',
               limit: 10000,
               emitFile: false,
             },
@@ -69,7 +70,7 @@ const webpackConfig = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[hash].css',
+      filename: 'static/css/[name].css?[hash:8]',
       chunks: 'all'
     }),
     new HtmlWebpackPlugin({ //每個實例都代表一個 HTML 檔案，可針對各自的 HTML 依 chunk 載入不同的 entry 內容
