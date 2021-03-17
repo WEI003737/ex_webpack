@@ -1,8 +1,8 @@
 import path from 'path';
 import { merge } from 'webpack-merge';
-import baseWebpackConfig from './webpack.base.babel.js';
+import { webpackConfig } from './webpack.base.babel.js';
 
-export default merge (baseWebpackConfig, {
+export default merge (webpackConfig, {
   stats: 'errors-only',
   mode: 'development',
   devtool: 'eval-source-map',
