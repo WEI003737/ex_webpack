@@ -3,19 +3,57 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import { DEV_ENV, NODE_ENV, PUBLICPATH } from './config';
+import imgPath from './src/js/hbsHelpers/imgPath';
+
+const pages = ['index', 'story'];
+
+function HtmlWebpackPluginTemplate (page) {
+  return {
+    template: `./views/${page}.hbs`,
+    filename: `${page}.html`,
+    chunks: ['vendor', page]
+    // excludeChunks: ['contact'], // 排除名為 contact 的 chunk
+    // chunksSortMode: 'manual', // 將排序改為手動模式 (即根據 chunks 進行排序)
+    // minify: NODE_ENV === 'production' ? true : false, //壓縮優化html，預設 production 啟用
+  }
+};
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    // index: ['@babel/polyfill', './js/index.js'] //polyfill 肥肥的
-    index: './js/index.js'
+    index: ['@babel/polyfill', './js/index.js'],
+    story: ['@babel/polyfill', './js/story.js']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'static/js/[name].js?[hash:8]'
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+          enforce: true,
+          priority: 10
+        }
+      },
+    },
+  },
   module: {
     rules: [  
+      {
+        test: /\.(handlebars|hbs)$/,
+        loader: 'handlebars-loader',
+        options: {
+          helperDirs: path.resolve(__dirname, 'src/js/hbsHelpers'),
+          partialDirs: [path.join(__dirname, 'src/views')],
+          knownHelpers: [ // export function 的名字
+            imgPath
+          ]
+        }
+      }, 
       {
         test: /\.s[ac]ss$/,
         use: () => {
@@ -72,16 +110,10 @@ const webpackConfig = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'static/css/[name].css?[hash:8]',
-      chunks: 'all'
+      chunks: 'all',
+      enforce: true,
     }),
-    new HtmlWebpackPlugin({ //每個實例都代表一個 HTML 檔案，可針對各自的 HTML 依 chunk 載入不同的 entry 內容
-      template: `./index.html`,
-      filename: `index.html`,
-      // chunks: ['vendor', 'index'],
-      // excludeChunks: ['contact'], // 排除名為 contact 的 chunk
-      // chunksSortMode: 'manual', // 將排序改為手動模式 (即根據 chunks 進行排序)
-      // minify: NODE_ENV === 'production' ? true : false, //壓縮優化html，預設 production 啟用
-    })
+    ...pages.map((page) => new HtmlWebpackPlugin(HtmlWebpackPluginTemplate(page))) //每個實例都代表一個 HTML 檔案，可針對各自的 HTML 依 chunk 載入不同的 entry 內容
   ]
 }
 

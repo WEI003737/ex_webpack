@@ -1,3 +1,4 @@
+import 'normalize.css';
 import '../scss/index.scss';
 import { changeText, doSomething } from './components/test';
 
