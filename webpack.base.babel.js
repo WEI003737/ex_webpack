@@ -1,16 +1,14 @@
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
 import { DEV_ENV, NODE_ENV, PUBLICPATH } from './config';
-import imgPath from './src/js/hbsHelpers/imgPath';
-
-const pages = ['index', 'story'];
 
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    index: ['@babel/polyfill', './js/index.js'],
-    story: ['@babel/polyfill', './js/story.js']
+    index: ['@babel/polyfill', './main.js']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -30,18 +28,17 @@ const webpackConfig = {
     },
   },
   module: {
-    rules: [  
+    rules: [
       {
-        test: /\.(handlebars|hbs)$/,
-        loader: 'handlebars-loader',
+        test: /\.vue$/,
+        loader: 'vue-loader',
         options: {
-          helperDirs: path.resolve(__dirname, 'src/js/hbsHelpers'),
-          partialDirs: [path.join(__dirname, 'src/views')],
-          knownHelpers: [ // export function 的名字
-            imgPath
-          ]
-        }
-      }, 
+          compiler: require('vue-template-compiler'), // 此為預設值
+          compilerOptions: {
+            whitespace: 'condense', // Vue CLI v3 預設選項
+          },
+        },
+      },
       {
         test: /\.s[ac]ss$/,
         use: () => {
@@ -94,10 +91,28 @@ const webpackConfig = {
         ],
       },
     ]
-  }
+  },
+  resolve: {  
+    extensions: ['.vue', '.mjs', '.js', '.json'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@img': path.resolve(__dirname, 'src/static/images'),
+      vue$: 'vue/dist/vue.runtime.esm.js', // 相比於 vue.esm.js 小 30% 左右
+    },
+  },
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: `./index.html`,
+      filename: `index.html`,
+      chunks: ['vendor', 'index']
+      // excludeChunks: ['contact'], // 排除名為 contact 的 chunk
+      // chunksSortMode: 'manual', // 將排序改為手動模式 (即根據 chunks 進行排序)
+      // minify: NODE_ENV === 'production' ? true : false, //壓縮優化html，預設 production 啟用
+    })
+  ]
 }
 
 export {
-  webpackConfig,
-  pages
+  webpackConfig
 };

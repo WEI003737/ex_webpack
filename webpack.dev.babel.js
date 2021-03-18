@@ -7,11 +7,12 @@ export default merge (webpackConfig, {
   mode: 'development',
   devtool: 'eval-source-map',
   devServer: {
-    // hot: true, //開啟 HMR
+    hot: true, //開啟 HMR
     port: 8080,
     // host: '0.0.0.0',
     // open: true, //自動開啟,
+    // publicPath: '/assets/',
     watchContentBase: true,
-    contentBase: path.resolve(__dirname, 'src'),
+    contentBase: path.resolve(__dirname, './src'),
   }
 });
