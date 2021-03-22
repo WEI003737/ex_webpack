@@ -1,3 +1,4 @@
+import 'normalize.css';
 import '../scss/story.scss';
 
 console.log('story');
