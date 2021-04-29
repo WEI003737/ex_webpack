@@ -1,0 +1,7 @@
+/*--divice size--*/
+
+@mixin rwd ($media) {
+  @media screen and (max-width: $media) {
+    @content;
+  }
+}

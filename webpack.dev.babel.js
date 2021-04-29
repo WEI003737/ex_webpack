@@ -8,7 +8,7 @@ export default merge (webpackConfig, {
   devtool: 'eval-source-map',
   devServer: {
     // hot: true, //開啟 HMR
-    port: 8080,
+    port: 8000,
     // host: '0.0.0.0',
     // open: true, //自動開啟,
     watchContentBase: true,
