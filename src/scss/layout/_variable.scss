@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&display=swap');
 
 /*--divice size--*/
-$w_1920: 1920px;
-$w_1366: 1366px;
-$w_1024: 1024px;
-$w_960: 960px;
-$w_800: 800px;
-$w_768: 768px;
-$w_640: 640px;
-$w_414: 414px;
-$w_375: 375px;
-$w_320: 320px;
+$w-1920: 1920px;
+$w-1366: 1366px;
+$w-1024: 1024px;
+$w-960: 960px;
+$w-800: 800px;
+$w-768: 768px;
+$w-640: 640px;
+$w-414: 414px;
+$w-375: 375px;
+$w-320: 320px;
 
 /*--font--*/
 $font-family: "Noto Sans TC", "黑體-繁", "Apple LiGothic Medium", "PingFang",
@@ -18,5 +18,8 @@ $font-family: "Noto Sans TC", "黑體-繁", "Apple LiGothic Medium", "PingFang",
     sans-serif;
 
 /*--color--*/
-$background_top: #96e4f4;
-$background_bottom: #f3f7df;
+$body-color: #5b4e3c;
+$button-color--yellow: #ffe38b;
+$button-color--light-black: #333333;
+$button-hover--light-gray: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+$prize-border-color: linear-gradient( #ffeb6e,#faa71b);

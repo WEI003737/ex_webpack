@@ -1,7 +1,14 @@
 @import './layout/variable';
 @import './layout/keyframe';
 @import './layout/mixin';
+@import './layout/extend';
 @import './layout/default';
 
+// page
+@import './story.scss';
 
-@import 'test.scss';
+// component
+@import './component/header.scss';
+@import './component/kv.scss';
+@import './component/footer.scss';
+@import './component/buttonGoTop.scss';

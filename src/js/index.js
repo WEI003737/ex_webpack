@@ -1,5 +1,6 @@
 import 'normalize.css';
 import '../scss/index.scss';
+import utils from './utils'
 import { changeText, doSomething } from './components/test';
 
 import { NODE_ENV } from '../../config';

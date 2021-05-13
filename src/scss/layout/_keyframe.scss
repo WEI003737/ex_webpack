@@ -2,3 +2,36 @@
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+@keyframes bounce {
+  16.65% { transform: translateY(28px); }
+  33.3% { transform: translateY(17px); }
+  49.95% { transform: translateY(26px); }
+  66.6% { transform: translateY(20px); }
+  83.25% { transform: translateY(23px); }
+  100% { transform: translateY(22px); }
+}
+
+@keyframes shake {
+  0%, 20%, 40%, 60%, 100% {
+    transform: rotate(0);
+  }
+  10%, 30%, 50%{
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes bounce-scale {
+  0% {
+    transform: scale(0.7);
+  }
+  45% {
+    transform: scale(1.05);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

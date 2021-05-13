@@ -29,21 +29,21 @@ img{
   display: block;
 }
 body{
-  @include rwd ($w_1024) {
+  @include rwd ($w-1024) {
   }
-  @include rwd ($w_768) {
+  @include rwd ($w-768) {
   }
-  @include rwd ($w_640) {
+  @include rwd ($w-640) {
   } 
 }
 .wrapper{
   margin: auto;
   max-width: 1024px;
-  @include rwd ($w_1024) {
+  @include rwd ($w-1024) {
     max-width: 800px;
   }
-  @include rwd ($w_768) {
+  @include rwd ($w-768) {
   }
-  @include rwd ($w_640) {
+  @include rwd ($w-640) {
   } 
 }
