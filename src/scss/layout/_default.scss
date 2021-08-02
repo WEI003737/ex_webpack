@@ -28,15 +28,8 @@ ol, ul, li{
 img{
   display: block;
 }
-body{
-  @include rwd ($w-1024) {
-  }
-  @include rwd ($w-768) {
-  }
-  @include rwd ($w-640) {
-  } 
-}
-.wrapper{
+
+.l-wrap{
   margin: auto;
   max-width: 1024px;
   @include rwd ($w-1024) {
@@ -46,4 +39,19 @@ body{
   }
   @include rwd ($w-640) {
   } 
+}
+.t1{
+  font-size: $t1;
+}
+.t2{
+  font-size: $t2;
+}
+.t3{
+  font-size: $t3;
+}
+.s1{
+  font-size: $s1;
+}
+.s2{
+  font-size: $s2;
 }
