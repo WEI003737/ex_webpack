@@ -1,1 +1,53 @@
-@import 'test.scss';
+*{
+  // outline: 1px solid #ffae00;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+a, a:link{
+  color: #000;
+  text-decoration: none;
+  // transition: color .3s linear;
+  cursor: pointer;
+}
+button{
+  cursor: pointer;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  &:focus{
+    outline: none;
+  }
+}
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+  padding: 0;
+}
+img{
+  display: block;
+  // object-fit: contain;
+}
+input[type=radio] {
+  @include absolute-align ($left:0, $translateX:-45%);
+  border: 0px;
+  width: 8%;
+  height: 15px;
+  @include screen($w-768){
+    transform: translate(-20%, -50%);
+    height: 4vw;
+  }
+}
+
+/*--layout--*/
+#app{
+  position: relative;
+}
+.wrapper{
+  margin: auto;
+  max-width: 1200px;
+  @include screen($w-1920){
+    max-width: 1200px;
+  }
+  @include screen($w-1440){
+    max-width: 1000px;
+  }
+}

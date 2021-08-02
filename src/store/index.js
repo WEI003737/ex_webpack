@@ -8,8 +8,13 @@ const store = new Vuex.Store({
     count: 0
   },
   mutations: {
-    add (state) {
+    increment (state) {
       state.count++;
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment');
     }
   }
 });

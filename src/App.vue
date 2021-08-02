@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <router-link class="link" to="/">Go to App</router-link>
-    <router-link
-      class="link"
-      to="/Test">Go To Test</router-link>
-    <router-link
-      class="link"
-      to="/Test2">Go To Test2</router-link>
+    <Header></Header>
 
     <router-view></router-view>
     
@@ -14,19 +8,18 @@
 </template>
 
 <script>
-  import Test from '@/components/Test.vue';
-  import Test2 from '@/components/Test2.vue';
+  import Header from '@/components/component/Header.vue';
+  
   export default {
     components: {
-      Test,
-      Test2
+      Header
     },
   };
 </script>
 
 <style lang="scss">
-  @import './scss/index.scss';
-  .link{
-    margin: 0 20px;
-  }
+  @import '@/scss/layout/variable.scss';
+  @import '@/scss/layout/keyframe.scss';
+  @import '@/scss/layout/mixin.scss';
+  @import '@/scss/index.scss';
 </style>

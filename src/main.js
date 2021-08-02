@@ -2,6 +2,16 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router/index.js';
 import store from './store/index.js';
+import 'normalize.css';
+
+import { imgPath, rwdImgPath } from './js/utils.js';
+
+// smoothscroll.polyfill();
+
+Vue.prototype._imgPath = imgPath;
+Vue.prototype._rwdImgPath = rwdImgPath;
+Vue.prototype._scrollTo = scrollTo;
+
 
 console.log('Hello Vue');
 
