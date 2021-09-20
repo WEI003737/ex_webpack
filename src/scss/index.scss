@@ -41,8 +41,11 @@ input[type=radio] {
 #app{
   position: relative;
 }
-.wrapper{
+.l-wrapper{
+  display: flex;
+  justify-content: center;
   margin: auto;
+  padding-top: 100px;
   max-width: 1200px;
   @include screen($w-1920){
     max-width: 1200px;

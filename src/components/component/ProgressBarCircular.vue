@@ -1,23 +1,27 @@
 <template>
 
-  <div class="c-processing-bar">
+  <div class="l-wrapper">
 
-    <div class="c-processing-bar__right">
-      <div class="c-processing-bar__right--cover" ref="right"></div>
-    </div>
-    
-    <div class="c-processing-bar__left">
-      <div class="c-processing-bar__left--cover" ref="left"></div>
-    </div>
+    <div class="c-processing-bar">
 
-    <div class="c-processing-bar__text">
-
-      <div class="c-processing-bar__text--score-container">
-        <p class="c-processing-bar__text--score">{{score}}</p>
-        <p class="c-processing-bar__text--slash"> / </p>
-        <p class="c-processing-bar__text--base">10</p>
+      <div class="c-processing-bar__right">
+        <div class="c-processing-bar__right--cover" ref="right"></div>
       </div>
       
+      <div class="c-processing-bar__left">
+        <div class="c-processing-bar__left--cover" ref="left"></div>
+      </div>
+
+      <div class="c-processing-bar__text">
+
+        <div class="c-processing-bar__text--score-container">
+          <p class="c-processing-bar__text--score">{{score}}</p>
+          <p class="c-processing-bar__text--slash"> / </p>
+          <p class="c-processing-bar__text--base">10</p>
+        </div>
+        
+      </div>
+    
     </div>
   
   </div>
