@@ -18,8 +18,9 @@ $font-family: "Noto Sans TC", "黑體-繁", "Apple LiGothic Medium", "PingFang",
     sans-serif;
 
 /*--color--*/
-$body-color: #5b4e3c;
-$button-color--yellow: #ffe38b;
-$button-color--light-black: #333333;
-$button-hover--light-gray: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+$body-color: #fff;
 $prize-border-color: linear-gradient( #ffeb6e,#faa71b);
+
+$button-color--yellow: #ffe38b;
+$button-color--black-300: #333333;
+$button-hover--gray-100: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));

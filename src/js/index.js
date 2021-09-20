@@ -1,11 +1,11 @@
 import 'normalize.css';
 import '../scss/index.scss';
-import utils from './utils'
+import { qs, rwdImgPath } from './utils'
 import { changeText, doSomething } from './components/test';
 
 import { NODE_ENV } from '../../config';
 
-if (NODE_ENV === 'development') {
+// if (NODE_ENV === 'development') {
   /*
   hmr:
   devServer hot 選項開啟
@@ -18,7 +18,11 @@ if (NODE_ENV === 'development') {
   //     doSomething(b);
   //   });
   // };
-};
+// };
+
+/* set img src by breakpoint */
+let rwdImg = qs('.kv__rwd-img--test');
+rwdImg.src = rwdImgPath(['test.jpg', 'test2.jpg'], [1280, 768]);
 
 const a = 734;  
 let b = ['Alice', 'Belly', 'Cathy'];

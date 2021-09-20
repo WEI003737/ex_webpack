@@ -8,11 +8,11 @@
   background: $button-color--yellow;
   border-radius: 50%;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-  @include rwd ($w-960) {
+  @include screen ($w-960) {
     bottom: 1em;
     right: 1em;
   }
-  @include rwd ($w-768) {
+  @include screen ($w-768) {
     display: none;
   }
   &__bar{

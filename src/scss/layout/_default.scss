@@ -1,19 +1,49 @@
 *{
-  // outline: 1px solid #ffae00;
+  // outline: 1px solid #ccc;
   box-sizing: border-box;
   font-family: $font-family;
 }
 a, a:link{
   color: #000;
   text-decoration: none;
-  transition: color .3s linear;
+  // transition: color .3s linear;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 button{
+  cursor: pointer;
+  border: none;
   appearance: none;
   -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
   &:focus{
     outline: none;
+  }
+}
+.button{
+  &--default{@include flex-align;
+    margin: 0 38.5px;
+    padding: 9.5px 38.5px;
+    background: $button-color--yellow;  
+    border-radius: 27px;
+    color: $button-color--black-300;
+    font-size: 24px;
+    @include screen ($w-1920) {
+      margin: 0 2vw;
+      padding: .5vw 2vw; 
+      border-radius: 1.4vw;
+      font-size: 1.3vw;
+    }
+    @include screen ($w-768) {
+      margin: 0 2vw;
+      padding: 2vw 2vw; 
+      width: 40%;
+      border-radius: 4vw;
+      font-size: 4.8vw;
+    }
+    &:hover{
+      background-image: $button-hover--gray-100;
+    }
   }
 }
 h1, h2, h3, h4, h5, h6, p{
@@ -27,23 +57,69 @@ ol, ul, li{
 }
 img{
   display: block;
+  object-fit: contain;
 }
+input,
+textarea{
+  -webkit-tap-highlight-color: transparent;
+}
+input[type=radio]{
+  @include absolute-align ($left:0, $translateX:-45%);
+  border: 0px;
+  width: 8%;
+  height: 15px;
+  @include screen($w-768){
+    transform: translate(-20%, -50%);
+    height: 4vw;
+  }
+}
+
+/*--layout--*/
 body{
-  @include rwd ($w-1024) {
-  }
-  @include rwd ($w-768) {
-  }
-  @include rwd ($w-640) {
-  } 
+  background: $body-color;
 }
 .wrapper{
+  position: relative;
   margin: auto;
-  max-width: 1024px;
-  @include rwd ($w-1024) {
-    max-width: 800px;
+  max-width: $w-1024;
+  width: 100%;
+  overflow: hidden;
+  @include screen($w-1920){
   }
-  @include rwd ($w-768) {
+  @include screen($w-768){
   }
-  @include rwd ($w-640) {
-  } 
+}
+.close{
+  position: relative;
+  &__bar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 2px;
+    background: #ccc;
+    &:nth-child(1){
+      transform: translate(0, 0) rotate(45deg);
+    }
+    &:nth-child(2){
+      transform: translate(0, -.5px) rotate(-45deg);
+    }
+  }
+  &:hover {
+    .close__bar{
+      background: #f27474;
+    }
+  }
+}
+.transition{
+  &--s1{
+    transition: 1s;
+  }
+
+}
+/*--font color--*/
+.color{
+  &--white{
+    color: #fff;
+  }
 }
