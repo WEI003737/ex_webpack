@@ -21,7 +21,8 @@ button{
   }
 }
 .button{
-  &--default{@include flex-align;
+  &--default{
+    @include flex-align;
     margin: 0 38.5px;
     padding: 9.5px 38.5px;
     background: $button-color--yellow;  
@@ -80,6 +81,8 @@ body{
 }
 .wrapper{
   position: relative;
+}
+.l-wrap{
   margin: auto;
   max-width: $w-1024;
   width: 100%;
@@ -115,11 +118,25 @@ body{
   &--s1{
     transition: 1s;
   }
-
 }
 /*--font color--*/
 .color{
   &--white{
     color: #fff;
   }
+}
+.t1{
+  font-size: $t1;
+}
+.t2{
+  font-size: $t2;
+}
+.t3{
+  font-size: $t3;
+}
+.s1{
+  font-size: $s1;
+}
+.s2{
+  font-size: $s2;
 }

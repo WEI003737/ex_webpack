@@ -4,11 +4,11 @@
 @import './layout/extend';
 @import './layout/default';
 
-// page
-@import './story.scss';
+/*-- page --*/
+@import './story';
 
-// component
-@import './component/header.scss';
-@import './component/kv.scss';
-@import './component/footer.scss';
-@import './component/buttonGoTop.scss';
+/*-- component --*/
+@import './components/header';
+@import './components/kv';
+@import './components/footer';
+@import './components/buttonGoTop';
