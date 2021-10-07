@@ -1,0 +1,22 @@
+$header-height: 80px // 改成:root
+
+.c-header
+  position: fixed
+  width: 100%
+  height: $header-height
+  background: $bg-primary
+  border-bottom: 1px solid #3d5bcc
+
+  &__open
+    position: absolute
+    right: 0
+    top: 0
+    z-index: 50
+    width: $header-height
+    height: $header-height
+
+.c-menu
+  position: absolute
+  width: 100%
+  height: 100vh
+  background: rgba(6,11,30,.71)

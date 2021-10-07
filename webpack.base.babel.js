@@ -1,6 +1,7 @@
 import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
 
 import { DEV_ENV, NODE_ENV, PUBLICPATH } from './config';
 import imgPath from './src/js/hbsHelpers/imgPath';
@@ -9,7 +10,7 @@ const pages = ['index', 'story'];
 
 function HtmlWebpackPluginTemplate (page) {
   return {
-    template: `./views/${page}.hbs`,
+    template: `./views/page/${page}.hbs`,
     filename: `${page}.html`,
     chunks: ['vendor', page]
     // excludeChunks: ['contact'], // 排除名為 contact 的 chunk
@@ -21,12 +22,12 @@ function HtmlWebpackPluginTemplate (page) {
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    index: ['@babel/polyfill', './js/index.js'],
-    story: ['@babel/polyfill', './js/story.js']
+    index: ['@babel/polyfill', './js/page/index.js'],
+    story: ['@babel/polyfill', './js/page/story.js']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'static/js/[name].js?[hash:8]'
+    filename: 'static/js/page/[name].js?[hash:8]'
   },
   optimization: {
     splitChunks: {
@@ -119,7 +120,9 @@ const webpackConfig = {
     ]
   },
   plugins: [
-    ...pages.map((page) => new HtmlWebpackPlugin(HtmlWebpackPluginTemplate(page))) //每個實例都代表一個 HTML 檔案，可針對各自的 HTML 依 chunk 載入不同的 entry 內容
+    //每個實例都代表一個 HTML 檔案，可針對各自的 HTML 依 chunk 載入不同的 entry 內容
+    ...pages.map((page) => new HtmlWebpackPlugin(HtmlWebpackPluginTemplate(page))),
+    new ESLintPlugin()
   ]
 }
 

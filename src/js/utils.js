@@ -1,14 +1,14 @@
 function qs (el) {
   return document.querySelector(el);
-};
+}
 
 function qsa (el) {
   return document.querySelectorAll(el);
-};
+}
 
 function stripTag (str) {
-  let reTag = /<[^>]+>|&[^>]+;/g;
-  return str = str.replace(reTag,'').trim();
+  const reTag = /<[^>]+>|&[^>]+;/g;
+  return str.replace(reTag,'').trim();
 }
 
 function checkVal (str, type = 'user') {
@@ -31,5 +31,5 @@ export {
   qs,
   qsa,
   stripTag,
-  checkVal
+  checkVal,
 };

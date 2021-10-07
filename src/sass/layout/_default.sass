@@ -1,0 +1,60 @@
+*
+  // outline: 1px solid #ffae00
+  box-sizing: border-box
+  font-family: $font-family
+
+body
+  background: #111b41
+
+a, a:link
+  color: #000
+  text-decoration: none
+  transition: color .3s linear
+  cursor: pointer
+
+button
+  appearance: none
+  -webkit-appearance: none
+  &:focus
+    outline: none
+  
+
+h1, h2, h3, h4, h5, h6, p
+  margin: 0
+  padding: 0
+
+ol, ul, li
+  margin: 0
+  padding: 0
+  list-style: none
+
+img
+  display: block
+
+
+.l-wrapper
+  margin: auto
+  max-width: 1024px
+  @include rwd ($w-1024) 
+    max-width: 800px
+
+.u-text
+  &__color
+    &--primary
+      color: $text-primary
+
+
+.t1
+  font-size: $t1
+
+.t2
+  font-size: $t2
+
+.t3
+  font-size: $t3
+
+.s1
+  font-size: $s1
+
+.s2
+  font-size: $s2

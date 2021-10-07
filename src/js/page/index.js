@@ -1,9 +1,8 @@
 import 'normalize.css';
-import '../scss/index.scss';
-import utils from './utils'
-import { changeText, doSomething } from './components/test';
+import '../../sass/page/index.sass';
+// import utils from '../utils';
 
-import { NODE_ENV } from '../../config';
+import { NODE_ENV } from '../../../config';
 
 if (NODE_ENV === 'development') {
   /*
@@ -12,15 +11,10 @@ if (NODE_ENV === 'development') {
   */
   // if (module.hot) {
   //   module.hot.accept('./components/test', function () {
-  //     const a = 734;  
+  //     const a = 734;
   //     let b = ['Alice', 'Belly', 'Cathy'];
   //     changeText(a);
   //     doSomething(b);
   //   });
   // };
-};
-
-const a = 734;  
-let b = ['Alice', 'Belly', 'Cathy'];
-changeText(a);
-doSomething(b);
+}

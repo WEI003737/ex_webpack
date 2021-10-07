@@ -1,5 +1,4 @@
 import 'normalize.css';
-import '../scss/story.scss';
+// import '../../sass/page/story.sass';
 
 console.log('story');
-//我是註解
