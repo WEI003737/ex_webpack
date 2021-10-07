@@ -3,7 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 
-import { DEV_ENV, NODE_ENV, PUBLICPATH } from './config';
+import { DEV_ENV, NODE_ENV, PUBLIC_PATH, PGW_PATH } from './config';
 import imgPath from './src/js/hbsHelpers/imgPath';
 
 const pages = ['index', 'story'];
@@ -96,7 +96,7 @@ const webpackConfig = {
             loader: 'url-loader',
             options: {
               name: '[name].[ext]?[hash:8]',
-              publicPath: NODE_ENV === 'production' ? PUBLICPATH + '/static/images' : './static/images',
+              publicPath: NODE_ENV === 'production' ? PUBLIC_PATH + '/static/images' : './static/images',
               limit: 1000,
               emitFile: false, //預設true: 輸出檔案 / false: css路徑寫入publicPath，不輸出檔案
             },
@@ -110,7 +110,7 @@ const webpackConfig = {
             loader: 'url-loader',
             options: {
               name: '[name].[ext]?[hash:8]',
-              publicPath: NODE_ENV === 'production' ? PUBLICPATH + '/static/images' : './static/images',
+              publicPath: NODE_ENV === 'production' ? PUBLIC_PATH + '/static/images' : './static/images',
               limit: 10000,
               emitFile: false,
             },
