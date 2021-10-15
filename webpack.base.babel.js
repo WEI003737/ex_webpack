@@ -10,7 +10,7 @@ const pages = ['index', 'story'];
 
 function HtmlWebpackPluginTemplate (page) {
   return {
-    template: `./views/page/${page}.hbs`,
+    template: `./views/${page}.hbs`,
     filename: `${page}.html`,
     chunks: ['vendor', page]
     // excludeChunks: ['contact'], // 排除名為 contact 的 chunk
@@ -22,8 +22,8 @@ function HtmlWebpackPluginTemplate (page) {
 const webpackConfig = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    index: ['@babel/polyfill', './js/page/index.js'],
-    story: ['@babel/polyfill', './js/page/story.js']
+    index: ['@babel/polyfill', './js/index.js'],
+    story: ['@babel/polyfill', './js/story.js']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -60,7 +60,7 @@ const webpackConfig = {
         loader: 'handlebars-loader',
         options: {
           helperDirs: path.resolve(__dirname, 'src/js/hbsHelpers'),
-          partialDirs: [path.join(__dirname, 'src/views')],
+          partialDirs: [path.join(__dirname, 'src')],
           knownHelpers: [ // export function 的名字
             imgPath
           ]

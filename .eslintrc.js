@@ -11,5 +11,12 @@ module.exports = {
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'space-before-function-paren': ['error', 'always'],
     'linebreak-style': ['error', 'windows'],
+		'no-use-before-define': ['error', { 'functions': false }],
+		'prefer-template': 'off',
+		'padded-blocks': 'off',
+		'consistent-return': 'off',
+		'no-shadow': 'off',
+		'prefer-arrow-callback': 'off',
+		'func-names': 'off',
   }
 };
