@@ -2,14 +2,20 @@
 <html lang="zh-Hant-TW">
 <head>
   
-  {{>./head}}
+  {{> ./head}}
 
 </head>
 <body>
   
-  {{!-- {{>./components/TheHeader}} --}}
+  {{> ./components/TheHeader}}
 
-  {{>./components/ProgressBarCircular}}
-  
+  <div class="l-index-content-main l-wrapper u-layout__padding--header-height u-text__color--primary">
+
+    <div class="l-index-content-main__title">Progress Bar Circular</div>
+    
+    {{> ./components/ProgressBarCircular}}
+
+  </div>
+
 </body>
 </html>

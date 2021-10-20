@@ -18,5 +18,7 @@ module.exports = {
 		'no-shadow': 'off',
 		'prefer-arrow-callback': 'off',
 		'func-names': 'off',
+		'radix': 'off',
+		'no-plusplus': 'off',
   }
 };

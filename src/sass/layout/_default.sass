@@ -1,5 +1,5 @@
 *
-  outline: 1px solid #ffae00
+  // outline: 1px solid #ffae00
   box-sizing: border-box
   font-family: $font-family
 
@@ -37,6 +37,11 @@ img
   width: 100%
   // @include rwd ($w-1024)
   //   max-width: 800px
+
+.u-layout
+  &__padding
+    &--header-height
+      padding-top: var(--header-height)
 
 .u-text
   &__color

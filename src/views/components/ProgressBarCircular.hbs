@@ -11,11 +11,13 @@
   <div class="c-processing-bar__text">
 
     <div class="c-processing-bar__text--score-container">
-      <p class="c-processing-bar__text--score">{{score}}</p>
+      <p class="c-processing-bar__text--score">${ score }</p>
       <p class="c-processing-bar__text--slash"> / </p>
       <p class="c-processing-bar__text--base">10</p>
     </div>
-    
+
+    <a class="c-processing-bar__btn--start" @click="rotate(processingBarDeg)">START</a>
+
   </div>
 
 </div>
