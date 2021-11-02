@@ -1,13 +1,15 @@
-@import './layout/base.sass'
+@import '@/sass/layout/base.sass'
 
-@import './components/progressBarCircular.sass'
-@import './components/kv.sass'
-@import './components/buttonGoTop.sass'
+@import '@/sass/components/progressBarCircular.sass'
+@import '@/sass/components/buttonCollection.sass'
+@import '@/sass/components/animationFalling.sass'
+@import '@/sass/components/kv.sass'
+@import '@/sass/components/buttonGoTop.sass'
 
 .l-index-content-main
   @include flex-align
   flex-direction: column
-  height: 100vh
+  min-height: 600px
   &__title
     margin-bottom: 40px
     font-size: 24px

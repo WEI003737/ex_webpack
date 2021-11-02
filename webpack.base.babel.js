@@ -119,6 +119,12 @@ const webpackConfig = {
       },
     ]
   },
+  resolve: {
+    alias: {
+      '@': path.join(__dirname, 'src'),
+      '~': path.join(__dirname, '/'),
+    }
+  },
   plugins: [
     //每個實例都代表一個 HTML 檔案，可針對各自的 HTML 依 chunk 載入不同的 entry 內容
     ...pages.map((page) => new HtmlWebpackPlugin(HtmlWebpackPluginTemplate(page))),

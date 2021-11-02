@@ -2,32 +2,36 @@ import axios from 'axios';
 
 import { NODE_ENV, HOST, PUBLIC_PATH } from '../../config';
 
-function qs (el) {
+function helperQs (el) {
   return document.querySelector(el);
 }
 
-function qsa (el) {
+function helperQsa (el) {
   return document.querySelectorAll(el);
 }
 
-function rwdImgPath (filename = [], breakpoints = []) {
-  
-  let screenWidth = window.innerWidth;
-  let ArrSortBreakpoints = [...breakpoints, screenWidth].sort((a, b) => b - a);
-  let breakpoint = screenWidth >= ArrSortBreakpoints[0] ? 1 : ArrSortBreakpoints.findIndex(point => screenWidth === point);
+function helperRwdImgPath (filename = [], breakpoints = []) {
+
+  const screenWidth = window.innerWidth;
+  const ArrSortBreakpoints = [...breakpoints, screenWidth].sort((a, b) => b - a);
+  const breakpoint = screenWidth >= ArrSortBreakpoints[0]
+    ? 1
+    : ArrSortBreakpoints.findIndex((point) => screenWidth === point);
 
   return NODE_ENV === 'production'
-        ? `${PUBLIC_PATH}${HOST}${PUBLIC_PATH}/static/images${filename[breakpoint - 1]}`
-        : `static/images/${filename[breakpoint - 1]}`;
-        
-};
+    ? `${PUBLIC_PATH}${HOST}${PUBLIC_PATH}/static/images${filename[breakpoint - 1]}`
+    : `static/images/${filename[breakpoint - 1]}`;
 
-function stripTag (str) {
-  const reTag = /<[^>]+>|&[^>]+;/g;
-  return str.replace(reTag,'').trim();
 }
 
-function checkVal (str, type = 'user') {
+function helperStripTag (str) {
+
+  const reTag = /<[^>]+>|&[^>]+;/g;
+  return str.replace(reTag, '').trim();
+
+}
+
+function helperCheckVal (str, type = 'user') {
   let regExp;
   switch (type) {
     case 'user':
@@ -37,25 +41,37 @@ function checkVal (str, type = 'user') {
       regExp = /^09\d{8}$/;
       break;
     case 'email':
+    default:
       regExp = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-      break;
   }
   if (regExp.test(str)) return true;
 }
 
-function toggleClass(el, className, transitionClass) {
+function helperToggleClass (el, className, transitionClass = null) {
 
-  let list = el.classList;
-  let hasClassName = Array.from(list).some(el => el === className);
-  list.add(transitionClass);
-  hasClassName ? list.remove(className) : list.add(className);
+  const list = el.classList;
+  const hasClassName = Array.from(list).some((el) => el === className);
 
-};
+  if (transitionClass) {
+    list.add(transitionClass);
+  }
 
-async function getAxios (
+  if (hasClassName) list.remove(className);
+  else list.add(className);
+
+}
+
+function helperCryptoRandom (min, max) {
+  const randomBuffer = new Uint32Array(1);
+  (window.crypto || window.msCrypto).getRandomValues(randomBuffer);
+  const randomNum = randomBuffer[0] / (0xffffffff + 1);
+  return Math.floor(randomNum * (max - min + 1)) + min;
+}
+
+async function helperGetAxios (
   url,
   params = {},
-  options = {}
+  options = {},
 ) {
   return await axios({
     method: 'get',
@@ -63,12 +79,12 @@ async function getAxios (
     responseType: 'json',
     ...options,
   });
-};
+}
 
-async function postAxios (
+async function helperPostAxios (
   url,
   params = {},
-  options = {}
+  options = {},
 ) {
   return await axios({
     method: 'post',
@@ -76,12 +92,14 @@ async function postAxios (
     data: params,
     ...options,
   });
-};
+}
 
 export {
-  qs,
-  qsa,
-  rwdImgPath,
-  stripTag,
-  checkVal,
+  helperQs,
+  helperQsa,
+  helperRwdImgPath,
+  helperStripTag,
+  helperCheckVal,
+  helperToggleClass,
+  helperCryptoRandom,
 };

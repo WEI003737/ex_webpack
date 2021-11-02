@@ -6,6 +6,16 @@ module.exports = {
 		es6: true,
 	},
   extends: 'airbnb-base',
+	settings: {
+		'import/resolver': {
+			'eslint-import-resolver-custom-alias': {
+        'alias': {
+          '@': './src',
+          '~': './'
+        },
+			}
+		}
+	},
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -20,5 +30,14 @@ module.exports = {
 		'func-names': 'off',
 		'radix': 'off',
 		'no-plusplus': 'off',
+		'no-unused-vars': 'off',
+		'no-return-await': 'off',
+		'import/extensions': [
+			'error',
+			'ignorePackages',
+			{
+				'js': 'never',
+			}
+		],
   }
 };
