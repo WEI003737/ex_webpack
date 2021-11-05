@@ -1,6 +1,6 @@
 import { helperQs, helperCryptoRandom } from '@/js/utils';
 
-const btnStart = helperQs('.animation-falling__btn--start');
+const btnStart = helperQs('.c-animation-falling__btn--start');
 btnStart.addEventListener('click', falling, false);
 
 function falling () {
@@ -11,7 +11,7 @@ function falling () {
   for (let i = 0; i < count; i++) {
     const div = document.createElement('div');
     const imgPath = `../../static/images/leaf${(Math.round(helperCryptoRandom(3, 5)))}.png`;
-    div.className = 'animation-falling__leaf';
+    div.className = 'c-animation-falling__leaf';
     div.innerHTML = `<img src="${imgPath}" alt="葉子">`;
     fragment.appendChild(div);
   }

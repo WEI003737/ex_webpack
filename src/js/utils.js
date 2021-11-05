@@ -68,6 +68,25 @@ function helperCryptoRandom (min, max) {
   return Math.floor(randomNum * (max - min + 1)) + min;
 }
 
+function helperGetScrollOffset () {
+  if (window.pageYOffset != null) {
+    return {
+      left: window.pageXOffset,
+      top: window.pageYOffset,
+    };
+  }
+  if (document.compatMode === 'CSS1Compat') {
+    return {
+      left: document.documentElement.scrollLeft,
+      top: document.documentElement.scrollTop,
+    };
+  }
+  return {
+    left: document.body.scrollLeft,
+    top: document.body.scrollTop,
+  };
+}
+
 async function helperGetAxios (
   url,
   params = {},
@@ -102,4 +121,5 @@ export {
   helperCheckVal,
   helperToggleClass,
   helperCryptoRandom,
+  helperGetScrollOffset,
 };
