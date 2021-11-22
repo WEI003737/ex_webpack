@@ -45,6 +45,7 @@ function helperCheckVal (str, type = 'user') {
       regExp = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
   }
   if (regExp.test(str)) return true;
+  return false;
 }
 
 function helperToggleClass (el, className, transitionClass = null) {

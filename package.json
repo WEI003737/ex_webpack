@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.babel.js",
+    "build:lab": "cross-env NODE_ENV=lab webpack --config webpack.prod.babel.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.babel.js"
   },
   "repository": {

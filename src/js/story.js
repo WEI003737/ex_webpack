@@ -1,3 +1,3 @@
-// import '../sass/page/story.sass';
+import '@/sass/story.sass';
 
 console.log('story');

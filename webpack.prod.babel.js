@@ -1,5 +1,6 @@
 import path from 'path';
 import { merge } from 'webpack-merge';
+import { DefinePlugin } from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
@@ -37,6 +38,11 @@ export default merge ( webpackConfig, {
       filename: 'static/css/[name].css?[hash:8]',
       chunks: 'all',
       enforce: true,
+    }),
+    new DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
     })
   ]
 });

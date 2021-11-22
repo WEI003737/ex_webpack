@@ -6,21 +6,18 @@
   padding: 0 var(--layout-padding)
   width: 100%
   height: var(--header-height)
-  background: $bg-primary
-  border-bottom: 1px solid #3d5bcc
+  background: #8C8C8C
+  border-bottom: 1px solid #fff
 
   .l-wrapper
     @include flex-align($x: space-between)
 
   &__open
+    @include flex-align
     width: var(--header-height)
     height: var(--header-height)
-
-// .c-menu
-//   position: absolute
-//   width: 100%
-//   height: 100vh
-//   background: rgba(6,11,30,.71)
+    background: #545454
+    border-bottom: 1px solid #fff
 
 .e-logo
   display: flex
