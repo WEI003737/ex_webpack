@@ -31,7 +31,6 @@
 ###### loader (轉換器) 是 function，接受源文件返回轉換結果
 ###### -D css-loader@4.2.1 => 處理 css 檔案
 ###### -D style-loader@1.2.1 => 將 css 注入 <style> 標籤
-###### -D node-sass@5.0.0
 ###### -D sass@1.26.10
 ###### -D sass-loader@10.0.2
 ###### -D postcss@7.0.32 => 要配置 postcss.config.js
@@ -50,7 +49,7 @@
 ###### splitChunksPlugin => webpack4 預設
 
 ### hbs 模板
-###### -D handlebars@4.7.6
+###### handlebars@4.7.6
 ###### -D handlebars-loader@1.7.1
 
 ### vue
