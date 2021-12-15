@@ -6,6 +6,7 @@
 body
   position: relative
   background: #D4D4D4
+  font-weight: 300
 
 a, a:link
   text-decoration: none
@@ -21,7 +22,6 @@ button
   -webkit-appearance: none
   &:focus
     outline: none
-  
 
 h1, h2, h3, h4, h5, h6, p
   margin: 0
@@ -36,11 +36,12 @@ img
   display: block
 
 .l-wrapper
+  position: relative
   margin: auto
   max-width: $w-1280
   width: 100%
-  // @include rwd ($w-1024)
-  //   max-width: 800px
+  @include screen ($w-1024)
+    max-width: 800px
 
 .u-layout
   &__padding

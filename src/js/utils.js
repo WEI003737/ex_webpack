@@ -25,10 +25,8 @@ function helperRwdImgPath (filename = [], breakpoints = []) {
 }
 
 function helperStripTag (str) {
-
   const reTag = /<[^>]+>|&[^>]+;/g;
   return str.replace(reTag, '').trim();
-
 }
 
 function helperCheckVal (str, type = 'user') {
@@ -88,6 +86,11 @@ function helperGetScrollOffset () {
   };
 }
 
+function helperRefreshViewHeight (variable) {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty(variable, `${vh}px`);
+}
+
 async function helperGetAxios (
   url,
   params = {},
@@ -123,4 +126,5 @@ export {
   helperToggleClass,
   helperCryptoRandom,
   helperGetScrollOffset,
+  helperRefreshViewHeight,
 };

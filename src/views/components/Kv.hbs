@@ -1,8 +1,18 @@
 <div id="kv" class="c-kv">
-  <p>印出: {{ message }}</p>
-  {{#if eventState}}
-    <p>活動進行中</p>
-  {{else}}
-    <p>活動已結束</p>
-  {{/if}}
+
+  <div class="l-wrapper">
+
+    <div id="kvText" class="c-kv__text">
+
+      <p>印出: {{ message }}</p>
+      {{#if eventState}}
+        <p>活動進行中</p>
+      {{else}}
+        <p>活動已結束</p>
+      {{/if}}
+
+    </div>
+
+  </div>
+
 </div>
